@@ -6,6 +6,6 @@ class School < ApplicationRecord
 
   
   # Associations
-  has_many :students
+  has_many :students, dependent: :destroy
 end
 
