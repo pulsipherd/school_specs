@@ -2,21 +2,21 @@ class SchoolsController < ApplicationController
 before_action :set_school, only: [:show, :edit, :update, :destroy] 
   # GET /schools
 def index
-  @school = schools.all
+  @school = School.all
 end
   # GET /schools/1
 def show
 end
   # GET /schools/new
 def new
-  @school = school.new
+  @school = School.new
 end
   # GET /schools/edit
 def edit
 end
   # POST /schools
 def create
-  @school = school.ne(school_params)
+  @school = School.new(school_params)
   
   if @school.save
     redirect_to @school, notice: 'We have put up a new school!'
@@ -34,11 +34,11 @@ end
   # DELETE /schools
 def destroy
   @school.destroy
-  redirect_to school_path, notice: "School was washed away in the flood."
+  redirect_to @school, notice: "School was washed away in the flood."
 end
   private
   def set_school
-    @school = school.find(params[:id])
+    @school = School.find(params[:id])
   end
 
     # Use callbacks to share common setup or constraints between actions.
