@@ -1,5 +1,5 @@
 class SchoolsController < ApplicationController
-
+before_action :set_school, only: [:show, :edit, :update, :destroy] 
   # GET /schools
 def index
   @school = schools.all

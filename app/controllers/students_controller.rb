@@ -34,7 +34,7 @@ class StudentsController < ApplicationController
   # PUT/PATCH /schools/1/students/1
   def update
     if @student.update(student_params)
-      redirect_to [@school, @student], notice: 'School is updated'
+      redirect_to @student, notice: 'School is updated'
     else
       render :edit
     end
