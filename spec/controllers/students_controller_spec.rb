@@ -59,9 +59,9 @@ RSpec.describe StudentsController, type: :controller do
       end
     end
     
-    it "redirects to the created school" do
+    it "redirects to the created student" do
       post :create, params: { school: valid_attributes }
-      expect(response).to redirect_to(School.last)
+      expect(response).to redirect_to(Student.last)
     end
   end
   

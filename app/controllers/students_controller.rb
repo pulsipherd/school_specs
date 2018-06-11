@@ -55,8 +55,7 @@ class StudentsController < ApplicationController
     end
 
     def set_student
-    
-      @student = Student.school.find(params[:id])
+      @student = Student.find(school_path[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
