@@ -63,7 +63,7 @@ RSpec.describe StudentsController, type: :controller do
       post :create, params: { student: valid_attributes }
       expect(response).to redirect_to(Student.last)
     end
-  end
+  
   
        context "with invalid params" do
         it "does not creates a new student" do
@@ -73,63 +73,63 @@ RSpec.describe StudentsController, type: :controller do
           end
         end
     
-    #       it "redirects to new template" do
-    #         post :create, params: { school: invalid_attributes }
-    #         expect(response).to be_successful
-    #       end
-    #     end
-    #   end
-    
-    #   describe "PUT #update" do
-    #     context "with valid params" do
-    #       let(:new_attributes) {
-      #         { capacity: 250 }
-      #       }
-      
-      #       it "update the school" do
-      #         school = School.create! valid_attributes
-      #         put :update, params: {id: school.id, school: new_attributes }
-      #         school.reload
-      #         expect(school.capacity).to eq(new_attributes[:capacity])
-      #       end
-      
-      #       it "redirect to the school updated" do
-      #         school = School.create! valid_attributes
-      #         put :update, params: {id: school.id, school: valid_attributes }
-      #         expect(response).to redirect_to(school)
-      #       end
-      #     end
-      
-      #     context "with invalid params" do
-      #       it "does not update the school" do
-      #         school = School.create! valid_attributes
-      #         put :update, params: {id: school.id, school: invalid_attributes }
-      #         school.reload
-      #         expect(school.name).to_not eq(invalid_attributes[:name])
-      #       end
-      
-      #       it "redirect to the edit form" do
-      #         school = School.create! valid_attributes
-      #         put :update, params: {id: school.id, school: invalid_attributes }
-      #         expect(response).to be_successful
-      #       end
-      #     end
-      #   end
-      
-      #    describe "DELETE #destroy" do
-      #     it "destroys the requested school" do
-      #       school = School.create! valid_attributes
-      #       expect {
-        #         delete :destroy, params: {id: school.id}
-        #       }.to change(School, :count).by(-1)
-        #     end
+          it "redirects to new template" do
+            post :create, params: { student: invalid_attributes }
+            expect(response).to be_successful
+          end
         
-        #     it "redirects to the school list" do
-        #       school = School.create! valid_attributes
-        #       delete :destroy, params: {id: school.id}
-        #       expect(response).to redirect_to(schools_url)
-        #     end
-        #   end
+      end
+    
+      describe "PUT #update" do
+        context "with valid params" do
+          let(:new_attributes) {
+              { capacity: 250 }
+            }
+      
+            it "update the student" do
+              student = Student.create! valid_attributes
+              put :update, params: {id: student.id, student: new_attributes }
+              student.reload
+            end
+      
+            it "redirect to the updated student" do
+              student = Student.create! valid_attributes
+              put :update, params: {id: student.id, student: valid_attributes }
+              expect(response).to redirect_to(student)
+            end
+          
+      
+          context "with invalid params" do
+            it "does not update the student" do
+              student = Student.create! valid_attributes
+              put :update, params: {id: student.id, student: invalid_attributes }
+              school.reload
+              expect(student.name).to_not eq(invalid_attributes[:name])
+            end
+      
+            it "redirect to the edit form" do
+              student = Student.create! valid_attributes
+              put :update, params: {id: student.id, student: invalid_attributes }
+              expect(response).to be_successful
+            end
+          end
+        end
+      end
+      
+         describe "DELETE #destroy" do
+          it "destroys the requested student" do
+            student = Student.create! valid_attributes
+            expect {
+                delete :destroy, params: {id: student.id}
+              }.to change(Student, :count).by(-1)
+            end
+        
+            it "redirects to the student list" do
+              student = Student.create! valid_attributes
+              delete :destroy, params: {id: student.id}
+              expect(response).to redirect_to(students_url)
+            end
+          end
         
         # end
         
