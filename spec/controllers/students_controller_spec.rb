@@ -45,7 +45,7 @@ RSpec.describe StudentsController, type: :controller do
   describe "GET #edit" do
     it "returns http success" do
       student = Student.create! valid_attributes
-      get :edit, params: { id: school.id }
+      get :edit, params: { id: student.id }
       expect(response).to be_successful
     end
   end
@@ -60,17 +60,18 @@ RSpec.describe StudentsController, type: :controller do
     end
     
     it "redirects to the created student" do
-      post :create, params: { school: valid_attributes }
+      post :create, params: { student: valid_attributes }
       expect(response).to redirect_to(Student.last)
     end
   end
   
-  #      context "with invalid params" do
-  #       it "does not creates a new school" do
-  #         expect {
-    #           post :create, params: { school: invalid_attributes }
-    #         }.to change(School, :count).by(0)
-    #       end
+       context "with invalid params" do
+        it "does not creates a new student" do
+          expect {
+              post :create, params: { student: invalid_attributes }
+            }.to change(Student, :count).by(0)
+          end
+        end
     
     #       it "redirects to new template" do
     #         post :create, params: { school: invalid_attributes }
