@@ -29,8 +29,8 @@ RSpec.describe StudentsController, type: :controller do
 
   describe "GET #show" do
     it "returns http success" do
-      student = @school.student.create! valid_attributes
-      get :show, params: { id: school.id }
+      student = Student.create! valid_attributes
+      get :show, params: { id: student.id }
       expect(response).to be_successful
     end
   end
@@ -44,7 +44,7 @@ RSpec.describe StudentsController, type: :controller do
 
   describe "GET #edit" do
     it "returns http success" do
-      student = School.student.create! valid_attributes
+      student = Student.create! valid_attributes
       get :edit, params: { id: school.id }
       expect(response).to be_successful
     end
